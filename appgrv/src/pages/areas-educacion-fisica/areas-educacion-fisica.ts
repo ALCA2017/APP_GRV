@@ -1,25 +1,38 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the AreasEducacionFisicaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { HttpProvider } from "../../providers/http/http";
 
 @IonicPage()
 @Component({
   selector: 'page-areas-educacion-fisica',
   templateUrl: 'areas-educacion-fisica.html',
 })
-export class AreasEducacionFisicaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+export class AreasEducacionFisicaPage {
+  public listaCursos: ISCursosAlumnos;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public http:      HttpProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AreasEducacionFisicaPage');
+    this.cargarCursosAreas();
   }
 
+  cargarCursosAreas(){
+
+    this.http.cargarCA(7).subscribe( res => {
+          this.listaCursos = res.listaCursosAreas;
+        },
+        error =>{
+          console.log(error);
+        });
+  }
+
+  showHome(){
+    this.navCtrl.setRoot("HomePage")
+  }
 }

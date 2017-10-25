@@ -8,8 +8,9 @@ import { AuthService } from '../../providers/auth-service/auth-service';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  username = '';
-  email = '';
+  name: string;
+  username: string = '';
+  email: string = '';
 
   constructor(
     public navCtrl: NavController,
@@ -18,7 +19,7 @@ export class HomePage {
   ) {
       let info = this.auth.getUserInfo();
       this.username = info['name'];
-      this.email = info['email'];
+      this.email = info['e-mail'];
   }
 
   ionViewDidLoad() {

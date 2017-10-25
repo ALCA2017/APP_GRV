@@ -15,6 +15,8 @@ import { AreasEducacionReligiosaPage } from "../pages/areas-educacion-religiosa/
 import { AreasIdiomasPage } from "../pages/areas-idiomas/areas-idiomas";
 import { AreasInformaticaPage } from "../pages/areas-informatica/areas-informatica";
 import { PdfPage } from '../pages/pdf/pdf';
+import { ContactPage } from '../pages/contact/contact';
+import { HomePage } from '../pages/home/home';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +24,11 @@ import { PdfPage } from '../pages/pdf/pdf';
 export class MyApp {
   @ViewChild('NAV') nav: Nav;
   public rootPage: any;
-  public pages: Array<{ titulo: string, component: any, icon: string , idArea: number}>;
+  public pages: Array<{
+    titulo: string,
+    component: any,
+    icon: string,
+    idArea: number}>;
 
   constructor(
     platform:     Platform,

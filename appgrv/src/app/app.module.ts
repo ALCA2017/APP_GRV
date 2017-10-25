@@ -1,19 +1,13 @@
-import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
-import { HttpModule } from '@angular/http';
-
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-
-import { StatusBar } from '@ionic-native/status-bar';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { LoginPage } from "../pages/login/login";
-import { HttpProvider } from '../providers/http/http';
-import { DocumentViewer } from "@ionic-native/document-viewer";
-import { Camera } from '@ionic-native/camera';
-import { AuthService } from '../providers/auth-service/auth-service';
+import { StatusBar } from '@ionic-native/status-bar';
+
+import { PdfViewerComponent } from 'ng2-pdf-viewer';
+
+import { MyApp } from './app.component';
+import { PdfViewerPage } from './../pages/pdf-viewer/pdf-viewer';
 
 import { AreasCienciasPage } from "../pages/areas-ciencias/areas-ciencias";
 import { AreasComunicacionPage } from "../pages/areas-comunicacion/areas-comunicacion";
@@ -24,15 +18,19 @@ import { AreasEducacionFisicaPage } from "../pages/areas-educacion-fisica/areas-
 import { AreasEducacionReligiosaPage } from "../pages/areas-educacion-religiosa/areas-educacion-religiosa";
 import { AreasIdiomasPage } from "../pages/areas-idiomas/areas-idiomas";
 import { AreasInformaticaPage } from "../pages/areas-informatica/areas-informatica";
-
 import { PdfPage } from '../pages/pdf/pdf';
+
+import { HttpModule } from '@angular/http';
+import { HttpProvider } from '../providers/http/http';
+import { AuthService } from '../providers/auth-service/auth-service';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
     LoginPage,
+    PdfViewerComponent,
+    PdfViewerPage,
 
     AreasCienciasPage,
     AreasComunicacionPage,
@@ -52,10 +50,9 @@ import { PdfPage } from '../pages/pdf/pdf';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
     LoginPage,
+    MyApp,
+    PdfViewerPage,
 
     AreasCienciasPage,
     AreasComunicacionPage,
@@ -66,16 +63,15 @@ import { PdfPage } from '../pages/pdf/pdf';
     AreasEducacionReligiosaPage,
     AreasIdiomasPage,
     AreasInformaticaPage,
-    PdfPage
+    PdfPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
-    AuthService,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService,
     HttpProvider,
-    DocumentViewer,
-    Camera
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

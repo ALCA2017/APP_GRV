@@ -18,6 +18,7 @@ export class AreasCienciasPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AreasCienciasPage');
+    this.cargarCursosAreas();
   }
 
   cargarCursosAreas(){

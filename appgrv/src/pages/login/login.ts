@@ -23,7 +23,7 @@ export class LoginPage {
       if (allowed) {
         this.nav.setRoot('HomePage');
       } else {
-        this.showError("Access Denied");
+        this.showError("Acceso denegado...!");
       }
     },
       error => {
@@ -33,7 +33,7 @@ export class LoginPage {
 
   showLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Please wait...',
+      content: 'Espere por favor...',
       dismissOnPageChange: true
     });
     this.loading.present();
