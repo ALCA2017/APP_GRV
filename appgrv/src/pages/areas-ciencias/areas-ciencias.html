@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+        <ion-buttons end>
+            <button ion-button icon-only color="royal" (click)="showHome()">
+              <ion-icon name="home"></ion-icon>
+          </button>
+        </ion-buttons>
+        <ion-title>CIENCIAS</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let usuario of listaCursos">
+            <span *ngIf="usuario.idArea==3">{{ usuario.curso }}</span>
+        </ion-item>
+    </ion-list>
+</ion-content>
